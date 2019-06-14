@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // pbStatus
@@ -53,6 +55,7 @@
             this.btnRun.TabIndex = 1;
             this.btnRun.Text = "실행";
             this.btnRun.UseVisualStyleBackColor = false;
+            this.btnRun.Click += new System.EventHandler(this.BtnRun_Click);
             // 
             // btnEnd
             // 
@@ -64,6 +67,7 @@
             this.btnEnd.TabIndex = 2;
             this.btnEnd.Text = "멈춤";
             this.btnEnd.UseVisualStyleBackColor = false;
+            this.btnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
             // btnReset
             // 
@@ -75,16 +79,21 @@
             this.btnReset.TabIndex = 3;
             this.btnReset.Text = "리셋";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblStatus.Location = new System.Drawing.Point(355, 40);
+            this.lblStatus.Location = new System.Drawing.Point(350, 40);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(51, 18);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "상태 : ";
+            // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form1
             // 
@@ -100,6 +109,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "상태 진행";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +122,7 @@
         private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Timer Timer;
     }
 }
 
